@@ -1,0 +1,62 @@
+.form {
+    /* max-width: 500px; */
+    /* width: 500px; */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form input,
+.form select,
+.form button {
+    width: 100%;
+    padding: 10px;
+    /* margin-bottom: 15px; */
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form input:focus,
+.form select:focus,
+.form button:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form button {
+    background-color: gray;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #007bff;
+}
+
+.gender {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.gender__input {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+}
+
+.gender__input input {
+    width: 20px;
+}
