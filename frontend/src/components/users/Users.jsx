@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { useGetUsersQuery } from "../../context/api/usersApi";
+import {
+    useDeleteUserMutation,
+    useGetUsersQuery,
+} from "../../context/api/usersApi";
 import "./users.css";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
@@ -14,11 +17,13 @@ const Users = () => {
         skip: page,
     });
 
+    const [deleteUser] = useDeleteUserMutation();
+
     const handleChange = (event, value) => {
         setPage(value);
     };
 
-    let pageCount = Math.floor(data?.total % limit) || 0;
+    let pageCount = Math.ceil(data?.total / limit) || 0;
     console.log(pageCount);
 
     console.log(data);
@@ -29,7 +34,12 @@ const Users = () => {
                 <h3>{user.lname}</h3>
                 <p>{user.age}</p>
                 <div className="btns">
-                    <button className="delete__btn">delete</button>
+                    <button
+                        className="delete__btn"
+                        onClick={() => deleteUser(user._id)}
+                    >
+                        delete
+                    </button>
                 </div>
             </div>
         </div>
